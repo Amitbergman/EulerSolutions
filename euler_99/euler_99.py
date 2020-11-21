@@ -23,8 +23,7 @@ for i in range(len(l_1)):
         maxer_ind = i
         maxer = l_1[i][2]
 
-print(maxer_ind)
-print(l_2[maxer_ind])
+print("The solution is: " + str(maxer_ind+1))
 
 
 
