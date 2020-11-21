@@ -1,7 +1,10 @@
-f = open("C:\\Users\\ambergma\\Desktop\\Amit\\Project euler\\euler_99\\p099_base_exp.txt", "r")
-import math
 def greater(l,i,j):
     return l[i][0] > l[j][0] and l[i][1] > l[j][1]
+
+f = open("C:\\Users\\ambergma\\Desktop\\Amit\\Project euler\\euler_99\\p099_base_exp.txt", "r")
+import time
+import math
+t0 = time.perf_counter()
 
 l_1 = list()
 l_2 = list()
@@ -25,6 +28,7 @@ for i in range(len(l_1)):
 
 print("The solution is: " + str(maxer_ind+1))
 
+print(f'Completed in {(time.perf_counter() - t0) * 1000:0.3f} ms')
 
 
 
