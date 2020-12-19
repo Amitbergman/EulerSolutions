@@ -8,21 +8,18 @@ import time
 tic = time.perf_counter()
 while(detected < 7):
     cur = str(i)
-    a = len(cur)
-    if (a + index < lookingFor):
-        index += a
-    else:
+    i = i + 1
+    currentNumberLength = len(cur)
+    if (currentNumberLength + index >= lookingFor):
         desiredLetter = cur[lookingFor - index-1]
         lookingFor = lookingFor * 10
         detected = detected + 1
         mult = mult * int(desiredLetter)
-        index += a
-    i = i + 1
+    index += currentNumberLength
 after = time.perf_counter()
-print(after - tic)
-print(mult)
+print("it took " + str(after - tic) + " seconds")
+print("result is: " + str(mult))
 
-#0.15897660000000002
 
 
     
