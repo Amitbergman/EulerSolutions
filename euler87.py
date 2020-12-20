@@ -11,15 +11,24 @@ primes_up_to_sqrt_fifty_million[0] = False
 primes_up_to_sqrt_fifty_million[1] = False
 
 for i in range(2,int(sqrtFiftyMillion)):
-    cur = i*2
+    cur = i*i
     while (cur < sqrtFiftyMillion):
         primes_up_to_sqrt_fifty_million[cur] = False
         cur = cur + i
-primes = [a for a in range(int(sqrtFiftyMillion+1)) if primes_up_to_sqrt_fifty_million[a]]
 
-optionsForA = [a for a in primes]
-optionsForB = [a for a in primes if a**3 < fiftyMiliion]
-optionsForC = [a for a in primes if a**4 < fiftyMiliion]
+optionsForA = []
+optionsForB = []
+optionsForC = []
+
+for i in range(int(sqrtFiftyMillion)+1):
+    if (primes_up_to_sqrt_fifty_million[i] == False):
+        continue
+    if (i**4 < fiftyMiliion):
+        optionsForC.append(i)
+    if (i**3 < fiftyMiliion):
+        optionsForB.append(i)
+    optionsForA.append(i)
+
 
 # These are all the options to get a,b,c so that:
 allTheResults = set()
