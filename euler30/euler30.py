@@ -33,7 +33,7 @@ def sumOfPower(number):
 #the largest number that you can get with 7 digits is of 6 digits, so there is no point to check 7 digits numbers
 #Actually the largest number that you should check is 354294 = 9**5 * 6
 
-numberOfThreads = 4
+numberOfThreads = 8
 end = 354294
 start = 2
 
@@ -41,8 +41,9 @@ rangeForEach = (end - start) // numberOfThreads
 
 def workForThread(start, threadName):
     global theSumOfAll
+    global numberOfThreads
     startTime = time.time()
-    for i in range (2,354294, 4):
+    for i in range (start,354294, numberOfThreads):
         if (sumOfPower(i) == i):
             theSumOfAll += i
     endTime = time.time()
@@ -58,5 +59,5 @@ for index, thread in enumerate(threads):
 
 print(theSumOfAll)
 GeneralEndTime = time.time()
-print("shoule be 443839")
+print("should be 443839")
 print("generally it took", GeneralEndTime - GeneralStartTime)
