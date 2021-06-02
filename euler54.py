@@ -37,23 +37,17 @@ def hasFlush(hand):
     colors = getColorsArray(hand)
     return (colors.count(colors[0]) == 5)
 
-def highCard(hand):
-    return max(getNumbersArray(hand))
-
 def hasStraight(hand):
     numbers = sorted(getNumbersArray(hand))
     minimal = numbers[0]
     for i in range(1,4):
         if (numbers[i] != minimal + i):
             return False
-    if (minimal == 2):
-        if (numbers[4] == 14 or numbers [4] == 6):
-            return True
-        return False
-    else:
-        if (numbers[4] == minimal + 4):
-            return True
-        return False
+    if (numbers[4] == minimal + 4):
+        return True
+    if (minimal == 2 and numbers[4] == 14): #Straight from ace to 5
+        return True
+    return False
 
 def has4OfAKind(hand):
     numbers = getNumbersArray(hand)
